@@ -2,7 +2,7 @@
 const secret = "SUSPECT SECRET";
 
 // Share
-const country = "Congo" ;
-const city = "Goma";
+const country = "Rwanda" ;
+const city = "Kigali";
 
 module.exports = { country, city };
