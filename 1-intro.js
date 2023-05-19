@@ -5,4 +5,3 @@
 // require    - function to use modules (commonJS)
 // module     - info about current module (file)
 // process    - info about env the program is being executed
-
