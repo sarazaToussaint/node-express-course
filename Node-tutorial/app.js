@@ -5,5 +5,5 @@ readFile('./content/first.txt','utf8', (error, result) => {
     console.log(error);
     return
   }
-
+  console.log(result);
 });
