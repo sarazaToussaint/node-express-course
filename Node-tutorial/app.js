@@ -5,5 +5,9 @@ readFile('./content/first.txt','utf8', (error, result) => {
     console.log(error);
     return
   }
-  console.log(result);
+  const first = result;
+  readFile('./content/secont.txt', 'utf8', (error, result) => {
+
+  })
+
 });
