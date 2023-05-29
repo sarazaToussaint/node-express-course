@@ -2,15 +2,16 @@ const http = require('http');
 
 const server = http.createServer((req, res) => {
   if(req.url === '/'){
-    res.end('Home page');
+    res.end(`<h1>Home Page</h1>`);
   }else if(req.url === '/about'){
-    res.end('This is our about page')
+    res.end(`<h1>About Page</h1>`);
   }else{
     res.end(`
-    <h1>Oops!<h1>
-    <p>The page you are looking for seems to be an accessible</p>
+    <h4>Oops!</h4>
 
-    <a href='/'>Back Home</a>
+    <p>The page you are looking for seems to be anaccessible</p>
+
+    <a href="/ ">Back</a>
     `)
   }
 })
