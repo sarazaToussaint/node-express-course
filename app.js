@@ -1,36 +1,13 @@
-const { readFile, writeFile } = require('fs').promises;
-// const util = require('util');
+const EventEmitter = require('events');
 
-// const readFilePromise = util.promisify(readFile);
-// const writeFilePromise = util.promisify(writeFile);
+const customEmitter = new EventEmitter();
 
-const start = async () => {
-  try {
-    const first = await readFile('./Node-tutorial/content/first.txt', 'utf-8');
-    const second = await readFile('./Node-tutorial/content/second.txt', 'utf-8');
-    await writeFile('./Node-tutorial/content/result-mind-grenade.txt',
-    `THIS IS AWESOME: ${first} ${second}`,
-     { flag: 'a'});
-    console.log(first, second);
-  } catch (error) {
-    console.log(error);
-  }
-}
+customEmitter.on('response', (name, id) => {
+  console.log(`Data received by ${name} with the id: ${id}`);
+})
 
-start();
+customEmitter.on('response', () => {
+  console.log('This is an other logic');
+})
 
-// const getText = (path) => {
-//   return new Promise((resolve, reject) => {
-//     readFile(path, 'utf8', (err, data) => {
-//         if(err){
-//           reject(err);
-//         }else{
-//           resolve(data);
-//         }
-//       })
-//   })
-// }
-
-// getText('./Node-tutorial/content/first.txt')
-// .then((result) => console.log(result))
-// .catch((err) => console.log(err))
+customEmitter.emit('response', 'John', 243)
