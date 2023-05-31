@@ -1,19 +1,36 @@
-const { readFile } = require('fs');
-const { reject } = require('lodash');
+const { readFile, writeFile } = require('fs').promises;
+// const util = require('util');
 
+// const readFilePromise = util.promisify(readFile);
+// const writeFilePromise = util.promisify(writeFile);
 
-const getText = (path) => {
-  return new Promise((resolve, reject) => {
-    readFile(path, 'utf8', (err, data) => {
-        if(err){
-          reject(err);
-        }else{
-          resolve(data);
-        }
-      })
-  })
+const start = async () => {
+  try {
+    const first = await readFile('./Node-tutorial/content/first.txt', 'utf-8');
+    const second = await readFile('./Node-tutorial/content/second.txt', 'utf-8');
+    await writeFile('./Node-tutorial/content/result-mind-grenade.txt',
+    `THIS IS AWESOME: ${first} ${second}`,
+     { flag: 'a'});
+    console.log(first, second);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-getText('./Node-tutorial/content/first.txt')
-.then((result) => console.log(result))
-.catch((err) => console.log(err))
+start();
+
+// const getText = (path) => {
+//   return new Promise((resolve, reject) => {
+//     readFile(path, 'utf8', (err, data) => {
+//         if(err){
+//           reject(err);
+//         }else{
+//           resolve(data);
+//         }
+//       })
+//   })
+// }
+
+// getText('./Node-tutorial/content/first.txt')
+// .then((result) => console.log(result))
+// .catch((err) => console.log(err))
