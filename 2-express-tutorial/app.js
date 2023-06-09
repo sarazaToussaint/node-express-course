@@ -20,4 +20,4 @@ http.createServer((req, res) => {
 
   res.writeHead(404);
   res.end(http.STATUS_CODES[404]);
-}).listen(5000);
+}).listen(process.env.PORT || 5000);
