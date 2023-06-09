@@ -1,5 +1,4 @@
 const http = require('http');
-const { url } = require('inspector');
 
 const routes = {
     '/': function home(req, res){
