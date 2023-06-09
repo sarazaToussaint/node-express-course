@@ -9,6 +9,11 @@ const routes = {
     '/foo': function foo(req, res){
         res.writeHead(200);
         res.end('You are now viewing foo');
+    },
+
+    '/about': function foo(req, res){
+        res.writeHead(200);
+        res.end('You are now viewing about page');
     }
 }
 
