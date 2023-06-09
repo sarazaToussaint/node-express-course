@@ -7,7 +7,7 @@ const routes = {
     },
 
     '/about': function about(req, res){
-          res.writeHead(200);
+          res.writeHead(200, {'Content-Type': 'text/plain'});
           res.end('Server is listening to About page');
     }
 };
