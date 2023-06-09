@@ -1,28 +1,23 @@
 const http = require('http');
+const { url } = require('inspector');
 
 const routes = {
-    '/': function index(req, res){
-       res.writeHead(200);
-       res.end('Hello, World!');
+    '/': function home(req, res){
+         res.writeHead(200);
+         res.end('Welcome to the Home Page');
     },
 
-    '/foo': function foo(req, res){
-        res.writeHead(200);
-        res.end('You are now viewing foo');
-    },
-
-    '/about': function foo(req, res){
-        res.writeHead(200);
-        res.end('You are now viewing about page');
+    '/about': function about(req, res){
+          res.writeHead(200);
+          res.end('Server is listening to About page');
     }
-}
+};
 
 http.createServer((req, res) => {
   if(req.url in routes){
-    return routes[req.url](req, res);
+    return routes[req.url](req, res)
   }
-  
+
   res.writeHead(404);
   res.end(http.STATUS_CODES[404]);
-
-}).listen(process.env.PORT || 5000);
+}).listen(5000);
