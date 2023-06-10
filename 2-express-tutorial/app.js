@@ -8,13 +8,14 @@ const routes = {
 
     '/about': function about(req, res){
           res.writeHead(200, {'Content-Type': 'text/html'});
-          res.end('<h1>Server is listening to About page</h1>');
+          res.end('<h1>Server is listening to About</h1>');
     }
 };
 
 http.createServer((req, res) => {
-  if(req.url in routes){
-    return routes[req.url](req, res)
+  const url = req.url;
+  if(url in routes){
+    return routes[url](req, res)
   }
 
   res.writeHead(404);
