@@ -1,24 +1,18 @@
-const http = require('http');
+const express = require('express');
+const path = require('path');
 
-const routes = {
-    '/': function home(req, res){
-         res.writeHead(200, {'Content-Type': 'text/html'});
-         res.end('<h1>Welcome to the Home Page</h1>');
-    },
+const app = express();
 
-    '/about': function about(req, res){
-          res.writeHead(200, {'Content-Type': 'text/html'});
-          res.end('<h1>Server is listening to About</h1>');
-    }
-};
+app.use(express.static('./public'));
 
-http.createServer((req, res) => {
-  const url = req.url;
-  if(url in routes){
-    return routes[url](req, res)
-  }
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
+});
 
-  res.writeHead(404);
-  res.end(http.STATUS_CODES[404]);
-}).listen(process.env.PORT || 5000);
+app.all('*', (req, res) => {
+  res.status(404).send('Page not found');
+});
 
+app.listen(5000, () => {
+  console.log('Server is listening to the port 5000');
+});
