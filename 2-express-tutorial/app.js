@@ -2,13 +2,13 @@ const http = require('http');
 
 const routes = {
     '/': function home(req, res){
-         res.writeHead(200, {'Content-Type': 'text/plain'});
-         res.end('Welcome to the Home Page');
+         res.writeHead(200, {'Content-Type': 'text/html'});
+         res.end('<h1>Welcome to the Home Page</h1>');
     },
 
     '/about': function about(req, res){
-          res.writeHead(200, {'Content-Type': 'text/plain'});
-          res.end('Server is listening to About page');
+          res.writeHead(200, {'Content-Type': 'text/html'});
+          res.end('<h1>Server is listening to About page</h1>');
     }
 };
 
