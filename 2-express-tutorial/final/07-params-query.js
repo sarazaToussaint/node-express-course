@@ -1,6 +1,6 @@
-const express = require('express')
-const app = express()
-const { products } = require('./data')
+const express = require('express');
+const app = express();
+const { products } = require('./data');
 
 app.get('/', (req, res) => {
   res.send('<h1> Home Page</h1><a href="/api/products">products</a>')
@@ -50,7 +50,7 @@ app.get('/api/v1/query', (req, res) => {
     // res.status(200).send('no products matched your search');
     return res.status(200).json({ sucess: true, data: [] })
   }
-  res.status(200).json(sortedProducts)
+  res.status(200).json(sortedProducts);
 })
 
 app.listen(5000, () => {
