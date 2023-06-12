@@ -34,7 +34,25 @@ app.get('/api/products/:productID/views/:viewID', (req, res) => {
 });
 
 
+app.get('/api/v1/query', (req, res) => {
+  // console.log(req.query);
+  // res.send('Hello, World');
+  const { search, limit} = req.query;
+  let myProducts = [...products];
 
+  if(search){
+    myProducts = myProducts.filter((product) => {
+      return product.name.startsWith(search);
+    })
+  }
+
+  if(limit){
+    limitedProduct = myProducts.slice(0, Number(limit));
+    res.status(200).send(limitedProduct);
+  }
+
+  res.status(200).send(myProducts);
+});
 
 app.listen(5000, () => {
   console.log('Server is listerning on port 5000...');
