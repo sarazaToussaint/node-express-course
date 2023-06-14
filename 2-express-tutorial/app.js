@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/products', (req, res) => {
   
-    const newProducts = products.map((product) => {
+    let newProducts = products.map((product) => {
       const {id, name, image} = product;
       return {id, name, image};
     });
