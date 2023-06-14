@@ -13,9 +13,9 @@ app.get('/api/products', (req, res) => {
     const newProducts = products.map((product) => {
       const {id, name, image} = product;
       return {id, name, image};
-    })
+    });
 
- res.status(200).send(newProducts);
+ res.status(200).json(newProducts);
 });
 
 
