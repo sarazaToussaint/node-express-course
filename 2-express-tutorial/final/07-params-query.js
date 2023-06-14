@@ -11,7 +11,7 @@ app.get('/api/products', (req, res) => {
     return { id, name, image }
   })
 
-  res.json(newProducts)
+  res.json(newProducts);
 })
 app.get('/api/products/:productID', (req, res) => {
   // console.log(req)
