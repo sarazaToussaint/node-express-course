@@ -14,6 +14,7 @@ const http = require('http');
   }else{
     res.writeHead(404, {'content-type': 'text/html'});
     res.write('<h3>Page not found</h3>');
+    res.end();
   }
 
 
