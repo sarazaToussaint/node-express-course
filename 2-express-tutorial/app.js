@@ -11,6 +11,9 @@ const http = require('http');
     res.writeHead(200, {'content-type': 'text/html'});
     res.write('<h1>About Page</h1>');
     res.end();
+  }else{
+    res.writeHead(404, {'content-type': 'text/html'});
+    res.write('<h3>Page not found</h3>');
   }
 
 
