@@ -10,6 +10,7 @@ const http = require('http');
   }else if(url === '/about'){
     res.writeHead(200, {'content-type': 'text/html'});
     res.write('<h1>About Page</h1>');
+    res.end();
   }
 
 
