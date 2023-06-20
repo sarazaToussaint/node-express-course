@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.static('./methods-public'));
 
-// app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));
 
 app.get('/api/people', (req, res) => {
   res.status(200).json({success:true, data: people});
