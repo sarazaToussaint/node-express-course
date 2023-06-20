@@ -4,7 +4,6 @@ let { people } = require('./data');
 const app = express();
 
 app.use(express.static('./methods-public'));
-
 app.use(express.urlencoded({extended: false}));
 
 app.get('/api/people', (req, res) => {
