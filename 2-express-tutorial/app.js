@@ -11,7 +11,7 @@ app.get('/api/people', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const {name} = req.body;
+  const { name } = req.body;
 
   if(name){
    return res.status(200).send(`Welcome ${name}`);
